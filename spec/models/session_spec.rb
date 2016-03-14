@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Session do
+RSpec.describe Session do
   it 'model should exist' do
     expect { Session.count }.not_to raise_exception
   end
@@ -18,5 +18,4 @@ describe Session do
   it 'should have belongs_to user' do
     expect(Fabricate.build(:session)).to respond_to(:user)
   end
-
 end

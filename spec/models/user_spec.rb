@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe User do
+RSpec.describe User do
   it 'model should exist' do
     expect { User.count }.not_to raise_exception
   end
@@ -25,6 +25,8 @@ describe User do
 
     it 'role' do
       expect(Fabricate.build(:user, num_of_calories: nil)).to_not be_valid
+      expect(Fabricate.build(:user, num_of_calories: -1)).to_not be_valid
+      expect(Fabricate.build(:user, num_of_calories: 0)).to be_valid
     end
   end
 
@@ -42,4 +44,17 @@ describe User do
     expect(Session.count).to eq(0)
   end
 
+  it 'should have has_many records' do
+    expect(Record.count).to eq(0)
+    user = Fabricate(:user)
+    expect(user).to respond_to(:records)
+    2.times do
+      Fabricate(:record, user: user)
+    end
+    expect(user.records.count).to eq(2)
+    Record.last.destroy
+    expect(user.records.count).to eq(1)
+    user.destroy
+    expect(Record.count).to eq(0)
+  end
 end
