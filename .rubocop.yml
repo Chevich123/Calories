@@ -1,0 +1,59 @@
+inherit_from: .rubocop_todo.yml
+
+Rails:
+  Enabled: true
+
+AllCops:
+  Include:
+    - Rakefile
+    - config.ru
+  Exclude:
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'bin/*'
+
+Rails/Output:
+  Exclude:
+    - 'lib/migrator/migrator.rb'
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 160
+
+Metrics/BlockNesting:
+  Max: 4
+
+Style/AsciiComments:
+  Enabled: false
+
+CaseIndentation:
+  IndentWhenRelativeTo: case
+  IndentOneStep: true
+
+Metrics/ClassLength:
+  Max: 100
+
+Metrics/ModuleLength:
+  Max: 100
+
+Metrics/AbcSize:
+  Max: 20
+
+
+Metrics/CyclomaticComplexity:
+  Max: 15
+
+Metrics/PerceivedComplexity:
+  Max: 15
+
+Metrics/MethodLength:
+  Max: 50
+
