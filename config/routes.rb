@@ -53,4 +53,10 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  scope path: '/api', module: 'api' do
+    resources :signup, only: :create, defaults: { format: 'json' }
+  end
+
+  root to: 'application#main'
 end

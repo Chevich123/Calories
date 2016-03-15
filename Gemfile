@@ -29,6 +29,7 @@ gem 'turbolinks'
 gem 'puma'
 gem 'enumerize'
 gem 'devise'
+gem 'haml'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
