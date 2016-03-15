@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Api::SignupController do
+describe Api::SignupController do
   context 'CREATE' do
     it 'returns :created status' do
       post :create, signup: Fabricate.attributes_for(:user)
@@ -24,8 +24,4 @@ RSpec.describe Api::SignupController do
       expect(json_response_body['errors']).to be_instance_of(Hash)
     end
   end
-end
-
-def json_response_body
-  @json_response_body ||= JSON.load(response.body)
 end

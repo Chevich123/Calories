@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Session do
+describe Session do
   it 'model should exist' do
     expect { Session.count }.not_to raise_exception
   end

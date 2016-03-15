@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Api::SessionsController do
+describe Api::SessionsController do
   let(:pass) { '123123123' }
   let(:user) { Fabricate(:user, password: pass, password_confirmation: pass) }
   let(:session) { Fabricate(:session, user: user) }
 
-  context '.create' do
+  context 'CREATE' do
     it 'returns :created status' do
       post :create, session: { email: user.email, password: pass }
       expect(response).to have_http_status(:created)
@@ -23,8 +23,8 @@ RSpec.describe Api::SessionsController do
     end
   end
 
-  context '.destroy' do
-    before(:each) do
+  context 'DESTROY' do
+    before do
       allow(controller).to receive(:current_session).and_return(session)
     end
 

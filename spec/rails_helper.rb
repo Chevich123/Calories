@@ -62,3 +62,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
+def json_response_body
+  @json_response_body ||= JSON.load(response.body)
+end

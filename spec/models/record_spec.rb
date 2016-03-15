@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Record do
+describe Record do
   it 'model should exist' do
     expect { Record.count }.not_to raise_exception
   end
