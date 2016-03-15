@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Api::ProfilesController, type: :controller do
+describe Api::ProfilesController do
   let(:session) { Fabricate(:session) }
 
   before do

@@ -54,10 +54,12 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  scope path: '/api', module: 'api' do
-    resources :signup, only: :create, defaults: { format: 'json' }
-    resource :session, only: [:create, :destroy], defaults: { format: 'json' }
-    resource :profiles, only: [:show, :update], defaults: { format: 'json' }
+  # scope path: '/api', module: 'api' do
+  namespace :api do
+    resources :signup, only: :create
+    resource :session, only: [:create, :destroy]
+    resource :profile, only: [:show, :update]
+    resources :users, only: [:index, :show, :create, :update, :destroy]
   end
 
   root to: 'application#main'

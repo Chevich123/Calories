@@ -7,18 +7,18 @@ describe Api::SessionsController do
 
   context 'CREATE' do
     it 'returns :created status' do
-      post :create, session: { email: user.email, password: pass }
+      post :create, session: { email: user.email, password: pass }, format: :json
       expect(response).to have_http_status(:created)
     end
 
     it 'creates a Session' do
       expect do
-        post :create, session: { email: user.email, password: pass }
+        post :create, session: { email: user.email, password: pass }, format: :json
       end.to change(Session, :count).by(1)
     end
 
     it 'returns :unauthorized status' do
-      post :create, session: { email: user.email, password: 'invalid' }
+      post :create, session: { email: user.email, password: 'invalid' }, format: :json
       expect(response).to have_http_status(:unauthorized)
     end
   end
@@ -29,13 +29,13 @@ describe Api::SessionsController do
     end
 
     it 'returns :ok status' do
-      delete :destroy
+      delete :destroy, format: :json
       expect(response).to have_http_status(:ok)
     end
 
     it 'destroys a Session' do
       expect do
-        delete :destroy
+        delete :destroy, format: :json
       end.to change(Session, :count).by(-1)
     end
   end

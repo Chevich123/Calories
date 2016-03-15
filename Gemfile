@@ -26,6 +26,8 @@ gem 'turbolinks'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'jbuilder', '~> 2.0'
+
 gem 'puma'
 gem 'enumerize'
 gem 'devise'

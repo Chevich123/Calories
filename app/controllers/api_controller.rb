@@ -1,8 +1,6 @@
 class ApiController < ApplicationController
   before_action :authenticate_user!
 
-  respond_to :json
-
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
 
   def current_user
@@ -22,5 +20,9 @@ class ApiController < ApplicationController
 
   def render_404
     render json: nil, status: :not_found
+  end
+
+  def render_forbidden
+    render json: nil, status: :forbidden
   end
 end

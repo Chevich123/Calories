@@ -58,6 +58,8 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
+  config.render_views = true
+
   config.after do
     DatabaseCleaner.clean
   end
@@ -65,4 +67,9 @@ end
 
 def json_response_body
   @json_response_body ||= JSON.load(response.body)
+end
+
+def fake_session(user)
+  allow(controller).to receive(:current_session).and_return(Fabricate(:session, user: user))
+  allow(controller).to receive(:current_user).and_return(user)
 end
