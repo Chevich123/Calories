@@ -56,6 +56,7 @@ Rails.application.routes.draw do
 
   scope path: '/api', module: 'api' do
     resources :signup, only: :create, defaults: { format: 'json' }
+    resource :session, only: [:create, :destroy], defaults: { format: 'json' }
   end
 
   root to: 'application#main'

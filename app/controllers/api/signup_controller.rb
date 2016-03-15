@@ -3,7 +3,7 @@ module Api
     skip_before_action :authenticate_user!
 
     def create
-      user = User.create(user_params)
+      user = User.create(user_strong_params)
       user.role = :regular
 
       if user.save
@@ -15,7 +15,7 @@ module Api
 
     private
 
-    def user_params
+    def user_strong_params
       params.fetch(:signup, {}).permit(:email, :password, :password_confirmation)
     end
   end
