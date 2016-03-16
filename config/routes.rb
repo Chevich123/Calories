@@ -60,6 +60,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resource :profile, only: [:show, :update]
     resources :users, only: [:index, :show, :create, :update, :destroy]
+    resources :records
   end
 
   root to: 'application#main'

@@ -5,7 +5,6 @@ module Api
     def create
       user = User.create(user_strong_params)
       user.role = :regular
-
       if user.save
         render json: user, status: :created
       else

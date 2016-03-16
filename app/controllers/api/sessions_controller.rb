@@ -4,7 +4,6 @@ module Api
 
     def create
       user = User.where(email: user_strong_params[:email]).take
-
       if user.present? && user.valid_password?(user_strong_params[:password])
         render json: user.sessions.create, status: :created
       else
