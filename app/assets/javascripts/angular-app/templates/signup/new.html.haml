@@ -1,0 +1,22 @@
+%h1.auth-header.text-center Calories
+.row
+  .col-md-4.col-md-offset-4.col-sm-6.col-sm-offset-3
+    .panel.panel-default
+      .panel-heading Sign up
+      .panel-body
+        %form{name: "new_signup_form", novalidate: true}
+          .form-group{'ng-class':"{'has-error': errors.email}"}
+            %label{name: 'email', class: 'control-label'} Email
+            %input{type: 'text', name: 'email', 'ng-model': 'signup.email', class: 'form-control', 'ng-required':'true'}
+            .help-block.text-danger{'ng-show':'errors.email'} {{ errors.email.join(', ') }}
+          .form-group{'ng-class':"{'has-error': errors.password}"}
+            %label{name: 'password', class: 'control-label'} Password
+            %input{type: 'password', name: 'password', 'ng-model': 'signup.password', class: 'form-control', 'ng-required':'true'}
+            .help-block.text-danger{'ng-show':'errors.password'} {{ errors.password.join(', ') }}
+          .form-group{'ng-class':"{'has-error': errors.password_confirmation}"}
+            %label{name: 'password', class:'control-label'} Password confirmation
+            %input{type: 'password', name:'password_confirmation', 'ng-model':'signup.password_confirmation', class: 'form-control', 'ng-required':'true'}
+            .help-block.text-danger{'ng-show':'errors.password_confirmation'} {{ errors.password_confirmation.join(', ') }}
+          %input{type: 'submit', value: 'Sign up', class: 'btn btn-primary', 'ng-click':'sign_up()', 'ng-disabled':'busy'}
+    .text-right
+      %a{href: '/#/session/new'} Log in

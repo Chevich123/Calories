@@ -1,0 +1,6 @@
+app.config(["$routeProvider", function ($routeProvider) {
+  return $routeProvider.when("/session/new", {
+    templateUrl: "<%= asset_path('angular-app/templates/session/new.html') %>",
+    controller: "SessionNewController"
+  });
+}]);

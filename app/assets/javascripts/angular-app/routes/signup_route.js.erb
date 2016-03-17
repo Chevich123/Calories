@@ -1,0 +1,6 @@
+app.config(["$routeProvider", function ($routeProvider) {
+  return $routeProvider.when("/signup/new", {
+    templateUrl: "<%= asset_path('angular-app/templates/signup/new.html') %>",
+    controller: "SignupNewController"
+  });
+}]);

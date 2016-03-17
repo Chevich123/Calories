@@ -23,10 +23,18 @@ describe User do
       expect(Fabricate.build(:user, role: '123')).to_not be_valid
     end
 
-    it 'role' do
+    it 'num_of_calories' do
       expect(Fabricate.build(:user, num_of_calories: nil)).to_not be_valid
       expect(Fabricate.build(:user, num_of_calories: -1)).to_not be_valid
       expect(Fabricate.build(:user, num_of_calories: 0)).to be_valid
+    end
+
+    it 'password' do
+      expect(Fabricate.build(:user, password: nil, password_confirmation: nil)).to_not be_valid
+      expect(Fabricate.build(:user, password: '456', password_confirmation: '456')).to_not be_valid
+      expect(Fabricate.build(:user, password: '456456456', password_confirmation: '123123123')).not_to be_valid
+      expect(Fabricate.build(:user, password: '456456456', password_confirmation: nil)).not_to be_valid
+      expect(Fabricate.build(:user, password: '456456456', password_confirmation: '456456456')).to be_valid
     end
   end
 

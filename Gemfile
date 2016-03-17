@@ -30,6 +30,11 @@ gem 'puma'
 gem 'enumerize'
 gem 'devise'
 gem 'haml'
+gem "twitter-bootstrap-rails"
+gem 'angularjs-rails'
+
+gem 'sprockets', '2.12.3'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -41,6 +46,9 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'rubocop', require: false
+
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
 end
 
 group :test do
