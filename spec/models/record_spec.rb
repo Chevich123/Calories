@@ -23,6 +23,8 @@ describe Record do
       expect(Fabricate.build(:record, num_of_calories: nil)).not_to be_valid
       expect(Fabricate.build(:record, num_of_calories: -1)).not_to be_valid
       expect(Fabricate.build(:record, num_of_calories: 0)).to be_valid
+      expect(Fabricate.build(:record, num_of_calories: 2_147_483_648)).to_not be_valid
+      expect(Fabricate.build(:record, num_of_calories: 2_147_483_647)).to be_valid
     end
   end
 end

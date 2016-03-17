@@ -27,6 +27,8 @@ describe User do
       expect(Fabricate.build(:user, num_of_calories: nil)).to_not be_valid
       expect(Fabricate.build(:user, num_of_calories: -1)).to_not be_valid
       expect(Fabricate.build(:user, num_of_calories: 0)).to be_valid
+      expect(Fabricate.build(:user, num_of_calories: 2_147_483_648)).to_not be_valid
+      expect(Fabricate.build(:user, num_of_calories: 2_147_483_647)).to be_valid
     end
 
     it 'password' do

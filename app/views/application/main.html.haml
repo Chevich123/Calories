@@ -14,7 +14,7 @@
             = link_to('Manage Users', '#', 'ng-href': '/#/users', role: 'button')
         %ul.nav.navbar-nav.navbar-right{'ng-show':'current_user'}
           %li.dropdown
-            = link_to '#', class: 'dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup':"true", 'aria-expanded':"false" do
+            = link_to '#', class: 'dropdown-toggle', 'data-toggle': 'dropdown' do
               {{current_user.email}}
               %span.caret
             %ul.dropdown-menu
@@ -22,7 +22,7 @@
                 = link_to('My Profile', '#', 'ng-href': "/#/profile/edit")
               %li{role:"separator", class:"divider"}
               %li
-                = link_to('Log Out', '#', 'ng-click':'sign_out()', 'ng-href': "#")
+                = link_to('Log Out', '#', 'ng-click':'log_out()', 'ng-href': "#")
         %ul.nav.navbar-nav.navbar-right{'ng-hide':'current_user'}
           %li= link_to('Log in', '#', 'ng-href': "/#/session/new")
   .container

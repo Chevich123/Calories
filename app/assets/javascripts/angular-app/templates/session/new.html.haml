@@ -13,6 +13,6 @@
           .form-group
             %label{name: 'password'} Password
             %input{type: 'password', name: 'password', 'ng-model': 'session.password', class: 'form-control', 'ng-required':'true'}
-          %input{type: 'submit', value: 'Log in', class: 'btn btn-primary', 'ng-click':'sign_in()', 'ng-disabled':'busy'}
+          %input{type: 'submit', value: 'Log in', class: 'btn btn-primary', 'ng-click':'log_in()', 'ng-disabled':'busy'}
     .text-right
       %a{href: '/#/signup/new'} Sign up

@@ -3,7 +3,7 @@ class Record < ActiveRecord::Base
 
   validates :date, :time, :meal, :num_of_calories, presence: true
 
-  validates :num_of_calories, numericality: { greater_than_or_equal_to: 0 }
+  validates :num_of_calories, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 2_147_483_647 }
 
   # rubocop:disable Style/Lambda
   scope :with_range, ->(params) do
