@@ -1,0 +1,23 @@
+%h1.page-header.text-center Manage Users
+.pull_left
+  %a{class: 'btn btn-default', href: '/#/users/new'} Add User
+.panel.panel-default
+  .alert.alert-danger{'ng-show':'delete_error'}
+    = 'You do not have permission to do that'
+  .panel-body
+    %table.table
+      %thead
+        %th Email
+        %th Role
+        %th.text-center Expected number of calories per day
+        %th
+      %tbody
+        %tr{'ng-repeat':'user in users', 'ng-controller':'UserDeleteController'}
+          %td {{user.email}}
+          %td {{user.role | capitalize}}
+          %td.text-center {{user.num_of_calories | thousand_separator}}
+          %td.text-right
+            %a{href:'/#/users/{{user.id}}/edit',class: 'btn-icon'}
+              %span{class:"glyphicon glyphicon-edit",'aria-hidden':true}
+            %a{'ng-click':"delete()",class: 'btn-icon'}
+              %span{class:"glyphicon glyphicon-trash",'aria-hidden':true}

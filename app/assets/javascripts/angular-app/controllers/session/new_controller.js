@@ -2,7 +2,7 @@ app.controller('SessionNewController', ['$scope', '$location', 'Session', functi
     $scope.ready = true;
     $scope.session = {};
 
-    return $scope.log_in = function () {
+    $scope.log_in = function () {
         $scope.busy = true;
 
         Session.save({

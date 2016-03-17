@@ -2,7 +2,7 @@ app.controller('SignupNewController', ['$scope', '$location', 'Signup', 'Session
     $scope.ready = true;
     $scope.signup = {};
 
-    return $scope.sign_up = function () {
+    $scope.sign_up = function () {
         $scope.busy = true;
 
         Signup.save({

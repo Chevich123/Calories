@@ -15,7 +15,7 @@ module Api
     end
 
     def create
-      @user = User.new(user_strong_params)
+      @user = User.new(create_user_strong_params)
       @user.role = :regular
       if @user.save
         render :show, status: :created
@@ -25,7 +25,7 @@ module Api
     end
 
     def update
-      if @user.update_attributes(user_strong_params)
+      if @user.update_attributes(update_user_strong_params)
         render :show
       else
         render :show, status: :unprocessable_entity
@@ -39,12 +39,16 @@ module Api
 
     private
 
-    def user_strong_params
+    def create_user_strong_params
+      params.fetch(:user, {}).permit(:email, :password, :password_confirmation, :num_of_calories, :role)
+    end
+
+    def update_user_strong_params
       params.fetch(:user, {}).permit(:email, :password, :password_confirmation, :num_of_calories, :role)
     end
 
     def create_user_permissions!
-      return unless user_strong_params[:role].present?
+      return unless create_user_strong_params[:role].present?
       render_forbidden if current_user.regular? && !check_role_attribute(:regular)
       render_forbidden if current_user.manager? && check_role_attribute(:admin)
     end
@@ -63,7 +67,7 @@ module Api
     end
 
     def check_role_attribute(sample)
-      sample.to_s.casecmp(user_strong_params[:role].to_s).zero?
+      sample.to_s.casecmp(create_user_strong_params[:role].to_s).zero?
     end
   end
 end

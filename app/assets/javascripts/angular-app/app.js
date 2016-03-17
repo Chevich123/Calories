@@ -21,4 +21,12 @@ var app = angular.module('Calories', ['ngResource', 'ngRoute'])
     '$httpProvider', function($httpProvider) {
         return $httpProvider.interceptors.push('MyAuthRequestInterceptor');
     }
-]);
+]).filter('capitalize', function() {
+    return function(input, scope) {
+        return input ? input.substring(0,1).toUpperCase()+input.substring(1).toLowerCase() : "";
+    }
+}).filter('thousand_separator', function() {
+    return function(input, scope) {
+        return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+});
