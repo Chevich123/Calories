@@ -2,7 +2,7 @@ app.controller('ProfileEditController', ['$scope', '$location', 'Profile', funct
     $scope.profile = {};
 
     $scope.load = function () {
-        Profile.update(function (data) {
+        Profile.get(function (data) {
             $scope.profile = data;
         });
     };

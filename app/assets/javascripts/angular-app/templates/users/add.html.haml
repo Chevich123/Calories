@@ -1,0 +1,28 @@
+%h1.page-header.text-center Add New User
+.row
+  .col-md-4.col-md-offset-4
+    .panel.panel-default
+      .panel-body
+        %form{name: "add_user_form", novalidate: true}
+          .form-group{'ng-class':"{'has-error': errors.email}"}
+            %label{name: 'email', class: 'control-label'} Email
+            %input{type: 'text', name: 'email', 'ng-model': 'user.email', class: 'form-control', 'ng-required':'true'}
+            .help-block.text-danger{'ng-show':'errors.email'} {{ errors.email.join(', ') }}
+          .form-group{'ng-class':"{'has-error': errors.password}"}
+            %label{name: 'password', class: 'control-label'} Password
+            %input{type: 'password', name: 'password', 'ng-model': 'user.password', class: 'form-control', 'ng-required':'true'}
+            .help-block.text-danger{'ng-show':'errors.password'} {{ errors.password.join(', ') }}
+          .form-group{'ng-class':"{'has-error': errors.password_confirmation}"}
+            %label{name: 'password', class:'control-label'} Password confirmation
+            %input{type: 'password', name:'password_confirmation', 'ng-model':'user.password_confirmation', class: 'form-control', 'ng-required':'true'}
+            .help-block.text-danger{'ng-show':'errors.password_confirmation'} {{ errors.password_confirmation.join(', ') }}
+          .form-group{'ng-class':"{'has-error': errors.email}"}
+            %label{name: 'email', class: 'control-label'} Role
+            %select{name: 'role', 'ng-model': 'user.role', class: 'form-control', 'ng-options': 'option.value as option.label for option in roles'}
+            .help-block.text-danger{'ng-show':'errors.role'} {{ errors.role.join(', ') }}
+          .form-group{'ng-class':"{'has-error': errors.num_of_calories}"}
+            %label{name: 'num_of_calories', class: 'control-label'} Expected number of calories per day
+            %input{type: 'num_of_calories', name: 'num_of_calories', 'ng-model': 'user.num_of_calories', class: 'form-control', 'ng-required':'true'}
+            .help-block.text-danger{'ng-show':'errors.num_of_calories'} {{ errors.num_of_calories.join(', ') }}
+          %input{type: 'submit', value: 'Add', class: 'btn btn-primary', 'ng-click':'save()', 'ng-disabled':'busy'}
+          %a{class: 'btn btn-primary', 'href':'/#/users', 'ng-disabled':'busy'} Cancel

@@ -2,5 +2,11 @@ app.config(["$routeProvider", function ($routeProvider) {
   return $routeProvider.when("/users", {
     templateUrl: "<%= asset_path('angular-app/templates/users/index.html') %>",
     controller: "UsersIndexController"
+  }).when("/users/:id/edit", {
+    templateUrl: "<%= asset_path('angular-app/templates/users/edit.html') %>",
+    controller: "UserEditController"
+  }).when("/users/new", {
+    templateUrl: "<%= asset_path('angular-app/templates/users/add.html') %>",
+    controller: "UserAddController"
   });
 }]);

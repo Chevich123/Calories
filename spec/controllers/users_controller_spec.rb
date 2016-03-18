@@ -19,7 +19,7 @@ describe Api::UsersController do
       fake_session(manager)
       get :index, format: :json
       expect(response).to have_http_status(:ok)
-      expect(json_response_body.count).to eq(User.count)
+      expect(json_response_body.count).to eq(User.where(role: :regular).count)
     end
 
     it 'returns :ok for admin' do

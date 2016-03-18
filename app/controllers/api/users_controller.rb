@@ -6,6 +6,8 @@ module Api
     def index
       @users = if current_user.regular?
                  [current_user]
+               elsif current_user.manager?
+                 User.where(role: :regular).all
                else
                  User.all
                end
@@ -44,7 +46,11 @@ module Api
     end
 
     def update_user_strong_params
-      params.fetch(:user, {}).permit(:email, :password, :password_confirmation, :num_of_calories, :role)
+      if current_user.admin?
+        params.fetch(:user, {}).permit(:email, :num_of_calories, :role)
+      else
+        params.fetch(:user, {}).permit(:email, :num_of_calories)
+      end
     end
 
     def create_user_permissions!
