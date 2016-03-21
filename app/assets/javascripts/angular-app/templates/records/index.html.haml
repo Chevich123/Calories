@@ -2,6 +2,21 @@
   .pull-right
     %a{class: 'btn btn-default', href: '/#/records/new'} Add Record
   Calorie Records
+%form{name: 'filter_records_form', class: 'form-inline', 'ng-submit':'filter_records()'}
+  .form-group
+    %label{name: 'date', class: 'form-label'} Date Range
+  .form-group
+    %input{name: 'date_from', type: 'date', class: 'form-control', placeholder: 'Date From', 'ng-model':'filter.date_from'}
+  .form-group
+    %input{name: 'date_to', type: 'date', class: 'form-control', placeholder: 'Date To', 'ng-model':'filter.date_to'}
+  .form-group
+    %label{name: 'time', class: 'form-label'} Time Range
+  .form-group
+    %input{name: 'time_from', type: 'number', class: 'form-control', placeholder: 'Time From', 'ng-model':'filter.time_from', step:'0.01', min:'0', max:'23.59'}
+  .form-group
+    %input{name: 'time_to', type: 'number', class: 'form-control', placeholder: 'Time To', 'ng-model':'filter.time_to', step:'0.01', min:'0', max:'23.59'}
+  %input{type: 'submit', value: 'Filter', class: 'btn btn-default'}
+  %a{href: '/#/', class: 'btn btn-default'} Reset
 .panel.panel-default
   .panel-body
     %table.table
