@@ -1,0 +1,24 @@
+%h1.page-header.text-center Edit Calorie Record
+.row
+  .col-md-4.col-md-offset-4
+    .panel.panel-default
+      .panel-body
+        %form{name: "edit_record_form", novalidate: true, 'ng-submit':'update()'}
+          .form-group{'ng-class':"{'has-error': errors.date}"}
+            %label{name: 'display_date', class: 'control-label'} Date
+            %input{type: 'date', name: 'display_date', 'ng-model': 'record.display_date', class: 'form-control', 'ng-required':'true'}
+            .help-block.text-danger{'ng-show':'errors.date'} {{ errors.date.join(', ') }}
+          .form-group{'ng-class':"{'has-error': errors.time}"}
+            %label{name: 'display_time', class: 'control-label'} Time
+            %input{type: 'number', name: 'display_time', 'ng-model': 'record.display_time', class: 'form-control', 'ng-required':'true', step:'0.01', min:'0', max:'23.59'}
+            .help-block.text-danger{'ng-show':'errors.time'} {{ errors.time.join(', ') }}
+          .form-group{'ng-class':"{'has-error': errors.meal}"}
+            %label{name: 'meal', class: 'control-label'} Meal
+            %input{type: 'text', name: 'meal', 'ng-model': 'record.meal', class: 'form-control', 'ng-required':'true'}
+            .help-block.text-danger{'ng-show':'errors.meal'} {{ errors.meal.join(', ') }}
+          .form-group{'ng-class':"{'has-error': errors.num_of_calories}"}
+            %label{name: 'num_of_calories', class: 'control-label'} Number Of Calories
+            %input{type: 'number', name: 'num_of_calories', 'ng-model': 'record.num_of_calories', class: 'form-control', 'ng-required':'true'}
+            .help-block.text-danger{'ng-show':'errors.num_of_calories'} {{ errors.num_of_calories.join(', ') }}
+          %input{type: 'submit', value: 'Update', class: 'btn btn-primary', 'ng-disabled':'busy'}
+          %a{class: 'btn btn-primary', 'href':'/#/', 'ng-disabled':'busy'} Cancel

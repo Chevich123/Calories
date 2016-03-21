@@ -1,0 +1,26 @@
+%h1.page-header.text-center
+  .pull-right
+    %a{class: 'btn btn-default', href: '/#/records/new'} Add Record
+  Calorie Records
+.panel.panel-default
+  .panel-body
+    %table.table
+      %thead
+        %th User
+        %th Date
+        %th Time
+        %th.text-center Meal
+        %th Calories
+        %th
+      %tbody
+        %tr{'ng-repeat':'record in records', 'ng-controller':'RecordsDeleteController'}
+          %td {{record.user.email}}
+          %td {{record.date | date:'y-MM-dd'}}
+          %td {{record.time / 3600 }}
+          %td.text-center {{record.meal}}
+          %td {{record.num_of_calories | thousand_separator}}
+          %td.text-right
+            %a{href:'/#/records/{{record.id}}/edit',class: 'btn-icon'}
+              %span{class:"glyphicon glyphicon-edit",'aria-hidden':true}
+            %a{'ng-click':"delete()",class: 'btn-icon'}
+              %span{class:"glyphicon glyphicon-trash",'aria-hidden':true}

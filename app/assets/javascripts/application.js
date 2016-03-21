@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require twitter/bootstrap
 //= require angular
 //= require angular-route
 //= require angular-resource
@@ -18,5 +19,9 @@
 //= require_tree ./angular-app/controllers
 //= require_tree ./angular-app/resources
 //= require_tree ./angular-app/routes
-//= require twitter/bootstrap
 //= require_tree .
+
+var getSecondsSinceMidnight = function(d) {
+    var e = new Date(d);
+    return (d - e.setHours(0,0,0,0)) / 1000;
+};

@@ -21,12 +21,10 @@ app.controller('UserEditController', ['$scope', '$location', '$routeParams', 'Us
     };
 
     $scope.load = function () {
-        console.log('get user', $routeParams.id);
         User.get({id: $routeParams.id}, function (data) {
             $scope.user = data;
         }, function(){
             $location.path('/users');
-            console.log($scope.$parent);
         });
     };
 

@@ -1,0 +1,12 @@
+app.config(["$routeProvider", function ($routeProvider) {
+  return $routeProvider.when("/records", {
+    templateUrl: "<%= asset_path('angular-app/templates/records/index.html') %>",
+    controller: "RecordsIndexController"
+  }).when("/records/:id/edit", {
+    templateUrl: "<%= asset_path('angular-app/templates/records/edit.html') %>",
+    controller: "RecordsEditController"
+  }).when("/records/new", {
+    templateUrl: "<%= asset_path('angular-app/templates/records/add.html') %>",
+    controller: "RecordsAddController"
+  });
+}]);
