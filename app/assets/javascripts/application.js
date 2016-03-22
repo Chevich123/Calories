@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require twitter/bootstrap
+//= require moment
+//= require bootstrap-datetimepicker
 //= require angular
 //= require angular-route
 //= require angular-resource

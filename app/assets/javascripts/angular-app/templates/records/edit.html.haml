@@ -4,9 +4,12 @@
     .panel.panel-default
       .panel-body
         %form{name: "edit_record_form", novalidate: true, 'ng-submit':'update()'}
-          .form-group{'ng-class':"{'has-error': errors.date}"}
-            %label{name: 'display_date', class: 'control-label'} Date
-            %input{type: 'date', name: 'display_date', 'ng-model': 'record.display_date', class: 'form-control', 'ng-required':'true'}
+          .form-group{'ng-class':"{'has-error': errors.date}", datetimez: true, 'ng-model':'record.date'}
+            %label{name: 'date', class: 'control-label'} Date
+            .input-group.date{datetimez: true, 'ng-model':'record.date'}
+              %input{type: 'text', name: 'date', 'ng-model': 'record.date', class: 'form-control', 'ng-required':'true'}
+              %span.input-group-addon
+                %span.glyphicon.glyphicon-calendar
             .help-block.text-danger{'ng-show':'errors.date'} {{ errors.date.join(', ') }}
           .form-group{'ng-class':"{'has-error': errors.time}"}
             %label{name: 'display_time', class: 'control-label'} Time

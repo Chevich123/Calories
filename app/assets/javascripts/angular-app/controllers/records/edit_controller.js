@@ -9,10 +9,6 @@ app.controller('RecordsEditController', ['$scope', '$location', '$routeParams', 
             $scope.record.time =  $scope.record.display_time * 3600;
         }
 
-        if ($scope.record.display_date) {
-            $scope.record.date =  $filter('date')($scope.record.display_date, 'yyyy-MM-dd');
-        }
-
         Record.update({
             id: $scope.record.id
         },{
@@ -29,7 +25,6 @@ app.controller('RecordsEditController', ['$scope', '$location', '$routeParams', 
     $scope.loadRecord = function(){
         Record.get({id: $routeParams.id}, function (data) {
             $scope.record = data;
-            $scope.record.display_date = new Date($scope.record.date);
             $scope.record.display_time = $scope.record.time / 3600;
         }, function(){
             $location.path('/');

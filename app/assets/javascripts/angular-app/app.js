@@ -37,4 +37,17 @@ var app = angular.module('Calories', ['ngResource', 'ngRoute'])
         var date = new Date(input);
         return date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
     }
-});
+}).directive('datetimez', function() {
+      return {
+          restrict: 'A',
+          require : 'ngModel',
+          link: function(scope, element, attrs, ngModelCtrl) {
+              element.datetimepicker({
+                  format:'YYYY-MM-DD'
+              }).on('dp.change', function(e) {
+                  ngModelCtrl.$setViewValue(e.date.format('YYYY-MM-DD'));
+                  scope.$apply();
+              });
+          }
+      };
+  });

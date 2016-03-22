@@ -9,8 +9,11 @@
             %select{name: 'user_id', 'ng-model': 'record.user_id', class: 'form-control', 'ng-required':'true', 'ng-options':'user.id as user.email for user in users'}
             .help-block.text-danger{'ng-show':'errors.user_id'} {{ errors.user_id.join(', ') }}
           .form-group{'ng-class':"{'has-error': errors.date}"}
-            %label{name: 'display_date', class: 'control-label'} Date
-            %input{type: 'date', name: 'display_date', 'ng-model': 'record.display_date', class: 'form-control', 'ng-required':'true'}
+            %label{name: 'date', class: 'control-label'} Date
+            .input-group.date{datetimez: true, 'ng-model':'record.date'}
+              %input{type: 'text', name: 'date', 'ng-model': 'record.date', class: 'form-control', 'ng-required':'true'}
+              %span.input-group-addon
+                %span.glyphicon.glyphicon-calendar
             .help-block.text-danger{'ng-show':'errors.date'} {{ errors.date.join(', ') }}
           .form-group{'ng-class':"{'has-error': errors.time}"}
             %label{name: 'display_time', class: 'control-label'} Time

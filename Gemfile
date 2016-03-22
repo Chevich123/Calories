@@ -31,6 +31,8 @@ gem 'enumerize'
 gem 'devise'
 gem 'haml'
 gem "twitter-bootstrap-rails"
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 gem 'angularjs-rails'
 
 gem 'sprockets', '2.12.3'

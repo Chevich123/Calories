@@ -1,5 +1,5 @@
 app.controller('RecordsAddController', ['$scope', '$location', '$routeParams', '$filter', 'Record', 'User', function ($scope, $location, $routeParams, $filter, Record, User) {
-    $scope.record = {user_id: $scope.current_user.id, display_time: 1.01, display_date: new Date()};
+    $scope.record = {user_id: $scope.current_user.id, display_time: 1.01};
     $scope.users = [];
 
 
@@ -7,10 +7,6 @@ app.controller('RecordsAddController', ['$scope', '$location', '$routeParams', '
         $scope.busy = true;
         if ($scope.record.display_time) {
             $scope.record.time =  $scope.record.display_time * 3600;
-        }
-
-        if ($scope.record.display_date) {
-            $scope.record.date =  $filter('date')($scope.record.display_date, 'yyyy-MM-dd');
         }
 
         Record.save({
