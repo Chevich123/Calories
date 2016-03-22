@@ -2,17 +2,17 @@ app.controller('UserEditController', ['$scope', '$location', '$routeParams', 'Us
     $scope.user = {};
     $scope.roles = [];
 
-    $scope.getRoles = function(){
+    $scope.getRoles = function () {
         $scope.roles = [
             {
                 value: 'regular',
                 label: 'Regular'
-            },{
+            }, {
                 value: 'manager',
                 label: 'Manager'
             }
         ];
-        if ($scope.current_user.role == 'admin'){
+        if ($scope.current_user.role == 'admin') {
             $scope.roles.push({
                 value: 'admin',
                 label: 'Admin'
@@ -23,7 +23,7 @@ app.controller('UserEditController', ['$scope', '$location', '$routeParams', 'Us
     $scope.load = function () {
         User.get({id: $routeParams.id}, function (data) {
             $scope.user = data;
-        }, function(){
+        }, function () {
             $location.path('/users');
         });
     };
@@ -33,7 +33,7 @@ app.controller('UserEditController', ['$scope', '$location', '$routeParams', 'Us
 
         User.update({
             id: $scope.user.id
-        },{
+        }, {
             user: $scope.user
         }, function (data) {
             $location.path('/users');

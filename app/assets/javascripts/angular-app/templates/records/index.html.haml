@@ -2,23 +2,29 @@
   .pull-right
     %a{class: 'btn btn-default', href: '/#/records/new'} Add Record
   Calorie Records
-%form{name: 'filter_records_form', class: 'form-inline', 'ng-submit':'filter_records()'}
+%form{name: 'filter_records_form', class: 'form-inline form-control-sm', 'ng-submit':'filter_records()'}
   .form-group
-    %label{name: 'date', class: 'form-label'} Date Range
-    .input-group.date{datetimez: true, 'ng-model':'filter.date_from'}
+    %label{name: 'date', class: 'form-label'} Date
+    .input-group.date{'datez': true, 'ng-model':'filter.date_from'}
       %input{name: 'date_from', type: 'text', class: 'form-control', placeholder: 'Date From', 'ng-model':'filter.date_from'}
       %span.input-group-addon
         %span.glyphicon.glyphicon-calendar
     %label{name: 'date', class: 'form-label'} -
-    .input-group.date{datetimez: true, 'ng-model':'filter.date_to'}
+    .input-group.date{'datez': true, 'ng-model':'filter.date_to'}
       %input{name: 'date_to', type: 'text', class: 'form-control',  placeholder: 'Date To', 'ng-model':'filter.date_to'}
       %span.input-group-addon
         %span.glyphicon.glyphicon-calendar
-    .form-group
-    %label{name: 'time', class: 'form-label'} Time Range
-    %input{name: 'time_from', type: 'number', class: 'form-control', placeholder: 'Time From', 'ng-model':'filter.time_from', step:'0.01', min:'0', max:'23.59'}
+  .form-group
+    %label{name: 'time', class: 'form-label'} Time
+    .input-group.date{'timez': true, 'ng-model':'filter.time_from'}
+      %input{name: 'time_from', type: 'text', class: 'form-control', placeholder: 'Time From', 'ng-model':'filter.time_from'}
+      %span.input-group-addon
+        %span.glyphicon.glyphicon-time
     %label{name: 'date', class: 'form-label'} -
-    %input{name: 'time_to', type: 'number', class: 'form-control', placeholder: 'Time To', 'ng-model':'filter.time_to', step:'0.01', min:'0', max:'23.59'}
+    .input-group.date{'timez': true, 'ng-model':'filter.time_to'}
+      %input{name: 'time_to', type: 'text', class: 'form-control', placeholder: 'Time To', 'ng-model':'filter.time_to'}
+      %span.input-group-addon
+        %span.glyphicon.glyphicon-time
   %input{type: 'submit', value: 'Filter', class: 'btn btn-default'}
   %a{href: '/#/', class: 'btn btn-default'} Reset
 .panel.panel-default
@@ -34,8 +40,8 @@
       %tbody
         %tr{'ng-repeat':'record in records', 'ng-controller':'RecordsDeleteController','ng-class': "{'text-success': record.overflow == false, 'text-danger': record.overflow}"}
           %td {{record.user.email}}
-          %td {{record.date | only_date}}
-          %td {{record.time / 3600 }}
+          %td {{record.date}}
+          %td {{record.time}}
           %td.text-center {{record.meal}}
           %td {{record.num_of_calories | thousand_separator}}
           %td.text-right
@@ -43,10 +49,3 @@
               %span{class:"glyphicon glyphicon-edit",'aria-hidden':true}
             %a{'ng-click':"delete()",class: 'btn-icon'}
               %span{class:"glyphicon glyphicon-trash",'aria-hidden':true}
-:javascript
-  $(function () {
-    $('#datetimepicker1').datetimepicker({
-      format: 'YYYY-MM-DD',
-      useCurrent: false
-    });
-  });

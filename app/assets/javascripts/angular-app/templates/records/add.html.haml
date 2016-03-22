@@ -10,14 +10,17 @@
             .help-block.text-danger{'ng-show':'errors.user_id'} {{ errors.user_id.join(', ') }}
           .form-group{'ng-class':"{'has-error': errors.date}"}
             %label{name: 'date', class: 'control-label'} Date
-            .input-group.date{datetimez: true, 'ng-model':'record.date'}
+            .input-group.date{'datez': true, 'ng-model':'record.date'}
               %input{type: 'text', name: 'date', 'ng-model': 'record.date', class: 'form-control', 'ng-required':'true'}
               %span.input-group-addon
                 %span.glyphicon.glyphicon-calendar
             .help-block.text-danger{'ng-show':'errors.date'} {{ errors.date.join(', ') }}
           .form-group{'ng-class':"{'has-error': errors.time}"}
-            %label{name: 'display_time', class: 'control-label'} Time
-            %input{type: 'number', name: 'display_time', 'ng-model': 'record.display_time', class: 'form-control', 'ng-required':'true', step:'0.01', min:'0', max:'23.59'}
+            %label{name: 'time', class: 'control-label'} Time
+            .input-group.date{'timez': true, 'ng-model':'record.display_time'}
+              %input{type: 'text', name: 'time', 'ng-model': 'record.display_time', class: 'form-control', 'ng-required':'true'}
+              %span.input-group-addon
+                %span.glyphicon.glyphicon-time
             .help-block.text-danger{'ng-show':'errors.time'} {{ errors.time.join(', ') }}
           .form-group{'ng-class':"{'has-error': errors.meal}"}
             %label{name: 'meal', class: 'control-label'} Meal

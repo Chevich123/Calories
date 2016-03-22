@@ -2,14 +2,14 @@ app.controller('UserAddController', ['$scope', '$location', '$routeParams', 'Use
     $scope.user = {'role': 'regular'};
     $scope.roles = [];
 
-    $scope.getRoles = function(){
+    $scope.getRoles = function () {
         $scope.roles = [
             {
                 value: 'regular',
                 label: 'Regular'
             }
         ];
-        if ($scope.current_user.role == 'admin'){
+        if ($scope.current_user.role == 'admin') {
             $scope.roles.push({
                 value: 'manager',
                 label: 'Manager'

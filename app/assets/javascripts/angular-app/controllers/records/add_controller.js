@@ -1,13 +1,12 @@
 app.controller('RecordsAddController', ['$scope', '$location', '$routeParams', '$filter', 'Record', 'User', function ($scope, $location, $routeParams, $filter, Record, User) {
-    $scope.record = {user_id: $scope.current_user.id, display_time: 1.01};
+    $scope.record = {user_id: $scope.current_user.id};
     $scope.users = [];
 
 
     $scope.save = function () {
         $scope.busy = true;
-        if ($scope.record.display_time) {
-            $scope.record.time =  $scope.record.display_time * 3600;
-        }
+
+        $scope.record.time = getTextToSecondsSinceMidnight($scope.record.display_time);
 
         Record.save({
             record: $scope.record
@@ -20,8 +19,8 @@ app.controller('RecordsAddController', ['$scope', '$location', '$routeParams', '
 
     };
 
-    $scope.loadUsers = function(){
-        User.query(function(data){
+    $scope.loadUsers = function () {
+        User.query(function (data) {
             $scope.users = data;
         });
     };

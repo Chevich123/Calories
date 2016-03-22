@@ -23,7 +23,3 @@
 //= require_tree ./angular-app/routes
 //= require_tree .
 
-var getSecondsSinceMidnight = function(d) {
-    var e = new Date(d);
-    return (d - e.setHours(0,0,0,0)) / 1000;
-};

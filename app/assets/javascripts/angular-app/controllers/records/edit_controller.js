@@ -6,12 +6,12 @@ app.controller('RecordsEditController', ['$scope', '$location', '$routeParams', 
         $scope.busy = true;
 
         if ($scope.record.display_time) {
-            $scope.record.time =  $scope.record.display_time * 3600;
+            $scope.record.time = getTextToSecondsSinceMidnight($scope.record.display_time);
         }
 
         Record.update({
             id: $scope.record.id
-        },{
+        }, {
             record: $scope.record
         }, function (data) {
             $location.path('/');
@@ -22,15 +22,14 @@ app.controller('RecordsEditController', ['$scope', '$location', '$routeParams', 
 
     };
 
-    $scope.loadRecord = function(){
+    $scope.loadRecord = function () {
         Record.get({id: $routeParams.id}, function (data) {
             $scope.record = data;
-            $scope.record.display_time = $scope.record.time / 3600;
-        }, function(){
+            $scope.record.display_time = getSecondsSinceMidnightToTxt($scope.record.time);
+        }, function () {
             $location.path('/');
         });
     };
-
 
 
     $scope.disabled123 = function () {
