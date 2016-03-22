@@ -29,4 +29,12 @@ var app = angular.module('Calories', ['ngResource', 'ngRoute'])
     return function(input, scope) {
         return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
+}).filter('only_date', function() {
+    return function(input, scope) {
+        if (!input){
+            return input;
+        }
+        var date = new Date(input);
+        return date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+    }
 });

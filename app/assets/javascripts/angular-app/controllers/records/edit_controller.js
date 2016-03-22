@@ -29,7 +29,6 @@ app.controller('RecordsEditController', ['$scope', '$location', '$routeParams', 
     $scope.loadRecord = function(){
         Record.get({id: $routeParams.id}, function (data) {
             $scope.record = data;
-            console.log('loaded', new Date($scope.record.date));
             $scope.record.display_date = new Date($scope.record.date);
             $scope.record.display_time = $scope.record.time / 3600;
         }, function(){
