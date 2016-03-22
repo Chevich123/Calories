@@ -2,31 +2,33 @@
   .pull-right
     %a{class: 'btn btn-default', href: '/#/records/new'} Add Record
   Calorie Records
-%form{name: 'filter_records_form', class: 'form-inline form-control-sm', 'ng-submit':'filter_records()'}
-  .form-group
-    %label{name: 'date', class: 'form-label'} Date
-    .input-group.date{'datez': true, 'ng-model':'filter.date_from'}
-      %input{name: 'date_from', type: 'text', class: 'form-control', placeholder: 'Date From', 'ng-model':'filter.date_from'}
-      %span.input-group-addon
-        %span.glyphicon.glyphicon-calendar
-    %label{name: 'date', class: 'form-label'} -
-    .input-group.date{'datez': true, 'ng-model':'filter.date_to'}
-      %input{name: 'date_to', type: 'text', class: 'form-control',  placeholder: 'Date To', 'ng-model':'filter.date_to'}
-      %span.input-group-addon
-        %span.glyphicon.glyphicon-calendar
-  .form-group
-    %label{name: 'time', class: 'form-label'} Time
-    .input-group.date{'timez': true, 'ng-model':'filter.time_from'}
-      %input{name: 'time_from', type: 'text', class: 'form-control', placeholder: 'Time From', 'ng-model':'filter.time_from'}
-      %span.input-group-addon
-        %span.glyphicon.glyphicon-time
-    %label{name: 'date', class: 'form-label'} -
-    .input-group.date{'timez': true, 'ng-model':'filter.time_to'}
-      %input{name: 'time_to', type: 'text', class: 'form-control', placeholder: 'Time To', 'ng-model':'filter.time_to'}
-      %span.input-group-addon
-        %span.glyphicon.glyphicon-time
-  %input{type: 'submit', value: 'Filter', class: 'btn btn-default'}
-  %a{href: '/#/', class: 'btn btn-default'} Reset
+.panel.panel-default
+  .panel-body
+    %form{name: 'filter_records_form', class: 'form-inline form-control-sm', 'ng-submit':'filter_records()'}
+      .form-group.col-xs-5
+        %label{name: 'date', class: 'form-label'} Date Range
+        .input-group.date.col-xs-4{'datez': true, 'ng-model':'filter.date_from'}
+          %input{name: 'date_from', type: 'text', class: 'form-control', placeholder: 'From', 'ng-model':'filter.date_from'}
+          %span.input-group-addon
+            %span.glyphicon.glyphicon-calendar
+        %label{name: 'date', class: 'form-label'} -
+        .input-group.date.col-xs-4{'datez': true, 'ng-model':'filter.date_to'}
+          %input{name: 'date_to', type: 'text', class: 'form-control',  placeholder: 'To', 'ng-model':'filter.date_to'}
+          %span.input-group-addon
+            %span.glyphicon.glyphicon-calendar
+      .form-group.col-xs-5
+        %label{name: 'time', class: 'form-label'} Time Range
+        .input-group.date.col-xs-4{'timez': true, 'ng-model':'filter.time_from'}
+          %input{name: 'time_from', type: 'text', class: 'form-control', placeholder: 'From', 'ng-model':'filter.time_from'}
+          %span.input-group-addon
+            %span.glyphicon.glyphicon-time
+        %label{name: 'date', class: 'form-label'} -
+        .input-group.date.col-xs-4{'timez': true, 'ng-model':'filter.time_to'}
+          %input{name: 'time_to', type: 'text', class: 'form-control', placeholder: 'To', 'ng-model':'filter.time_to'}
+          %span.input-group-addon
+            %span.glyphicon.glyphicon-time
+      %input{type: 'submit', value: 'Filter', class: 'btn btn-info'}
+      %a{href: '/#/', class: 'btn btn-default'} Reset
 .panel.panel-default
   .panel-body
     %table.table

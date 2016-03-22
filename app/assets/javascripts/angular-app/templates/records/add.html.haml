@@ -30,5 +30,5 @@
             %label{name: 'num_of_calories', class: 'control-label'} Number Of Calories
             %input{type: 'number', name: 'num_of_calories', 'ng-model': 'record.num_of_calories', class: 'form-control', 'ng-required':'true'}
             .help-block.text-danger{'ng-show':'errors.num_of_calories'} {{ errors.num_of_calories.join(', ') }}
-          %input{type: 'submit', value: 'Add', class: 'btn btn-primary', 'ng-disabled':'busy'}
+          %input{type: 'submit', value: 'Save', class: 'btn btn-primary', 'ng-disabled':'busy'}
           %a{class: 'btn btn-primary', 'href':'/#/', 'ng-disabled':'busy'} Cancel
