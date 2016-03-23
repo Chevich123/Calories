@@ -19,7 +19,6 @@ app.controller('RecordsEditController', ['$scope', '$location', '$routeParams', 
             $scope.busy = false;
             $scope.errors = response.data.errors;
         });
-
     };
 
     $scope.loadRecord = function () {
@@ -29,11 +28,6 @@ app.controller('RecordsEditController', ['$scope', '$location', '$routeParams', 
         }, function () {
             $location.path('/');
         });
-    };
-
-
-    $scope.disabled123 = function () {
-        return !$scope.edit_record_form.$valid || $scope.busy;
     };
 
     $scope.loadRecord();

@@ -23,8 +23,5 @@ app.controller('ProfileEditController', ['$scope', '$location', 'Profile', funct
 
     };
 
-    $scope.disabled = function () {
-        return !$scope.edit_profile_form.$valid || $scope.busy;
-    };
     $scope.load();
 }]);

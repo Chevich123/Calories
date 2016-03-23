@@ -13,3 +13,4 @@
             %input{type: 'num_of_calories', name: 'num_of_calories', 'ng-model': 'profile.num_of_calories', class: 'form-control', 'ng-required':'true'}
             .help-block.text-danger{'ng-show':'errors.num_of_calories'} {{ errors.num_of_calories.join(', ') }}
           %input{type: 'submit', value: 'Update', class: 'btn btn-primary', 'ng-click':'update()', 'ng-disabled':'busy'}
+          %a{class: 'btn btn-primary', 'href':'/#/', 'ng-disabled':'busy'} Cancel
