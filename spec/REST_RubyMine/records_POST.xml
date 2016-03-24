@@ -1,0 +1,46 @@
+<RestClientRequest>
+  <option name="biscuits">
+    <list />
+  </option>
+  <option name="httpMethod" value="POST" />
+  <option name="urlBase" value="http://46.101.103.122" />
+  <option name="urlPath" value="/api/records" />
+  <option name="headers">
+    <list>
+      <KeyValuePair>
+        <option name="key" value="Accept" />
+        <option name="value" value="application/json" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="X-Auth-Secret" />
+        <option name="value" value="bf86905b131c53c4851cc90c88c29c7cc9f78ac0d2e25f398a026a1ed62db665" />
+      </KeyValuePair>
+    </list>
+  </option>
+  <option name="parameters">
+    <list>
+      <KeyValuePair>
+        <option name="key" value="record[date]" />
+        <option name="value" value="2016-03-24" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="record[time]" />
+        <option name="value" value="600" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="record[meal]" />
+        <option name="value" value="Carrot" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="record[num_of_calories]" />
+        <option name="value" value="100" />
+      </KeyValuePair>
+    </list>
+  </option>
+  <option name="parametersEnabled" value="true" />
+  <option name="haveTextToSend" value="false" />
+  <option name="haveFileToSend" value="false" />
+  <option name="isFileUpload" value="false" />
+  <option name="textToSend" value="" />
+  <option name="filesToSend" value="" />
+</RestClientRequest>

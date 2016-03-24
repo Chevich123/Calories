@@ -23,4 +23,9 @@ COPY docker/nginx.conf /etc/nginx/nginx.conf
 COPY docker/rails.conf /etc/nginx/sites-enabled/rails.conf
 RUN rm /etc/nginx/sites-enabled/default
 
+EXPOSE 80
+
+ENV RACK_ENV=production\
+ SECRET_KEY_BASE=c167f83b44e753df23c460909770646599d952022591973294e05dea4957c9a0b9a9a52186de38153beeb5f3c0c8a9488389c23d88738c414af8ac2dc1d9d980
+
 CMD docker/start.sh
