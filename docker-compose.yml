@@ -1,0 +1,7 @@
+rails:
+  build: .
+  container_name: test_toptal_rails
+  ports:
+    - "9292:80"
+  env_file: .env
+  command: docker/start.sh

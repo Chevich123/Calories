@@ -30,6 +30,7 @@ gem 'puma'
 gem 'enumerize'
 gem 'devise'
 gem 'haml'
+
 gem "twitter-bootstrap-rails"
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
@@ -57,9 +58,4 @@ group :test do
   gem 'rspec-rails'
   gem 'fabrication'
   gem 'database_cleaner'
-  gem 'cucumber-rails', require: false
-  gem 'capybara'
-  gem 'capybara-webkit'
-  gem 'capybara-screenshot'
-  gem 'selenium-webdriver'
 end
