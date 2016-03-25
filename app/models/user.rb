@@ -9,5 +9,5 @@ class User < ActiveRecord::Base
 
   validates :role, presence: true
   validates :password_confirmation, presence: { if: :new_record? }
-  validates :num_of_calories, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 2_147_483_647 }
+  validates :num_of_calories, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 2_147_483_647 }
 end

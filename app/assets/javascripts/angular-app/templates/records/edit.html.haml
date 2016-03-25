@@ -7,14 +7,14 @@
           .form-group{'ng-class':"{'has-error': errors.date}"}
             %label{name: 'date', class: 'control-label'} Date
             .input-group.date{'datez': true, 'ng-model':'record.date'}
-              %input{type: 'text', name: 'date', 'ng-model': 'record.date', class: 'form-control', 'ng-required':'true'}
+              %input{type: 'text', name: 'date', 'ng-model': 'record.date', class: 'form-control', 'ng-required':'true', placeholder: 'yyyy-mm-dd'}
               %span.input-group-addon
                 %span.glyphicon.glyphicon-calendar
             .help-block.text-danger{'ng-show':'errors.date'} {{ errors.date.join(', ') }}
           .form-group{'ng-class':"{'has-error': errors.time}"}
             %label{name: 'time', class: 'control-label'} Time
             .input-group.date{'timez': true, 'ng-model':'record.display_time'}
-              %input{type: 'text', name: 'time', 'ng-model': 'record.display_time', class: 'form-control', 'ng-required':'true'}
+              %input{type: 'text', name: 'time', 'ng-model': 'record.display_time', class: 'form-control', 'ng-required':'true', placeholder: 'hh:mm'}
               %span.input-group-addon
                 %span.glyphicon.glyphicon-time
             .help-block.text-danger{'ng-show':'errors.time'} {{ errors.time.join(', ') }}
@@ -26,5 +26,5 @@
             %label{name: 'num_of_calories', class: 'control-label'} Number Of Calories
             %input{type: 'number', name: 'num_of_calories', 'ng-model': 'record.num_of_calories', class: 'form-control', 'ng-required':'true'}
             .help-block.text-danger{'ng-show':'errors.num_of_calories'} {{ errors.num_of_calories.join(', ') }}
-          %input{type: 'submit', value: 'Update', class: 'btn btn-primary', 'ng-disabled':'busy'}
+          %input{type: 'submit', value: 'Update', class: 'btn btn-primary', 'ng-disabled':'disabled()'}
           %a{class: 'btn btn-primary', 'href':'/#/', 'ng-disabled':'busy'} Cancel

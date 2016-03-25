@@ -35,5 +35,9 @@ app.controller('UserAddController', ['$scope', '$location', '$routeParams', 'Use
 
     };
 
+    $scope.disabled = function() {
+        return !$scope.add_user_form.$valid || $scope.busy;
+    };
+
     $scope.getRoles();
 }]);

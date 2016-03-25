@@ -25,5 +25,9 @@ app.controller('RecordsAddController', ['$scope', '$location', '$routeParams', '
         });
     };
 
+    $scope.disabled = function() {
+        return !$scope.add_record_form.$valid || $scope.busy;
+    };
+
     $scope.loadUsers();
 }]);

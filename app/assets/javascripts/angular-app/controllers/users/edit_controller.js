@@ -44,6 +44,10 @@ app.controller('UserEditController', ['$scope', '$location', '$routeParams', 'Us
 
     };
 
+    $scope.disabled = function() {
+      return !$scope.edit_user_form.$valid || $scope.busy;
+    };
+
     $scope.load();
     $scope.getRoles();
 }]);

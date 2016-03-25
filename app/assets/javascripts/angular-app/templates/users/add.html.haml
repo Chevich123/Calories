@@ -24,5 +24,5 @@
             %label{name: 'num_of_calories', class: 'control-label'} Expected number of calories per day
             %input{type: 'number', name: 'num_of_calories', 'ng-model': 'user.num_of_calories', class: 'form-control', 'ng-required':'true'}
             .help-block.text-danger{'ng-show':'errors.num_of_calories'} {{ errors.num_of_calories.join(', ') }}
-          %input{type: 'submit', value: 'Save', class: 'btn btn-primary', 'ng-click':'save()', 'ng-disabled':'busy'}
+          %input{type: 'submit', value: 'Save', class: 'btn btn-primary', 'ng-click':'save()', 'ng-disabled':'disabled()'}
           %a{class: 'btn btn-primary', 'href':'/#/users', 'ng-disabled':'busy'} Cancel
